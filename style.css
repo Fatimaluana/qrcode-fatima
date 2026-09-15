@@ -1,0 +1,181 @@
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+min-height: 100vh;
+
+background: linear-gradient(
+    135deg,
+    #e0f2fe,
+    #f0fdf4
+);
+
+color: #1f2937;
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+padding: 40px 20px;
+
+
+}
+
+.container {
+width: 100%;
+max-width: 950px;
+text-align: center;
+}
+
+h1 {
+font-size: 36px;
+color: #111827;
+margin-bottom: 10px;
+}
+
+.subtitle {
+color: #6b7280;
+font-size: 17px;
+margin-bottom: 40px;
+}
+
+.cards {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 30px;
+}
+
+.card {
+background: #ffffff;
+
+padding: 35px 25px;
+
+border-radius: 20px;
+
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+
+transition: transform 0.3s ease,
+            box-shadow 0.3s ease;
+
+
+}
+
+.card:hover {
+transform: translateY(-8px);
+
+box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+
+
+}
+
+.icon {
+font-size: 45px;
+margin-bottom: 15px;
+}
+
+.card h2 {
+font-size: 28px;
+margin-bottom: 12px;
+}
+
+.card p {
+color: #6b7280;
+line-height: 1.6;
+min-height: 52px;
+}
+
+.qrcode {
+width: 180px;
+height: 180px;
+
+margin: 25px auto;
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+background: #ffffff;
+
+
+}
+
+/* Cores específicas */
+
+.miopia {
+border-top: 7px solid #2563eb;
+}
+
+.miopia h2 {
+color: #2563eb;
+}
+
+.hipermetropia {
+border-top: 7px solid #16a34a;
+}
+
+.hipermetropia h2 {
+color: #16a34a;
+}
+
+/* Botão */
+
+button {
+border: none;
+
+padding: 12px 25px;
+
+border-radius: 10px;
+
+color: white;
+
+font-size: 15px;
+
+cursor: pointer;
+
+transition: 0.3s;
+
+
+}
+
+.miopia button {
+background: #2563eb;
+}
+
+.miopia button:hover {
+background: #1d4ed8;
+}
+
+.hipermetropia button {
+background: #16a34a;
+}
+
+.hipermetropia button:hover {
+background: #15803d;
+}
+
+/* Responsividade */
+
+@media (max-width: 700px) {
+
+body {
+    padding: 25px 15px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+.cards {
+    grid-template-columns: 1fr;
+}
+
+.card {
+    padding: 30px 20px;
+}
+
+
+}

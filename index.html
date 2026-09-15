@@ -1,0 +1,94 @@
+<!DOCTYPE html> <html lang="pt-BR"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>QR Codes - Visão</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- Biblioteca para gerar QR Codes -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+</head> <body>
+<main class="container">
+
+    <h1>QR Codes para Correção Visual</h1>
+    <p class="subtitle">
+        Escolha o QR Code correspondente à condição visual.
+    </p>
+
+    <section class="cards">
+
+        <!-- MIopia -->
+        <div class="card miopia">
+            <div class="icon">👓</div>
+
+            <h2>Miopia</h2>
+
+            <p>
+                Informações sobre miopia e cuidados com a visão.
+            </p>
+
+            <div id="qrcode-miopia" class="qrcode"></div>
+
+            <button onclick="gerarQRCode('miopia')">
+                Gerar QR Code
+            </button>
+        </div>
+
+        <!-- Hipermetropia -->
+        <div class="card hipermetropia">
+            <div class="icon">👁️</div>
+
+            <h2>Hipermetropia</h2>
+
+            <p>
+                Informações sobre hipermetropia e cuidados com a visão.
+            </p>
+
+            <div id="qrcode-hipermetropia" class="qrcode"></div>
+
+            <button onclick="gerarQRCode('hipermetropia')">
+                Gerar QR Code
+            </button>
+        </div>
+
+    </section>
+
+</main>
+
+<script>
+    function gerarQRCode(tipo) {
+
+        let elemento;
+        let texto;
+
+        if (tipo === "miopia") {
+            elemento = document.getElementById("qrcode-miopia");
+
+            texto = "Miopia: dificuldade para enxergar objetos distantes. Procure um oftalmologista para avaliação da visão.";
+        }
+
+        if (tipo === "hipermetropia") {
+            elemento = document.getElementById("qrcode-hipermetropia");
+
+            texto = "Hipermetropia: dificuldade principalmente para enxergar objetos próximos. Procure um oftalmologista para avaliação da visão.";
+        }
+
+        // Remove o QR Code anterior
+        elemento.innerHTML = "";
+
+        // Cria um novo QR Code
+        new QRCode(elemento, {
+            text: texto,
+            width: 180,
+            height: 180,
+            colorDark: "#111827",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    }
+
+    // Gera os dois QR Codes automaticamente ao carregar a página
+    window.onload = function () {
+        gerarQRCode("miopia");
+        gerarQRCode("hipermetropia");
+    };
+</script>
+
+</body> </html>
