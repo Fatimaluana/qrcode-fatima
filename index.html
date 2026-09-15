@@ -1,94 +1,137 @@
-<!DOCTYPE html> <html lang="pt-BR"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>QR Codes - Visão</title>
-<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio Delícias</title>
 
-<!-- Biblioteca para gerar QR Codes -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 
-</head> <body>
-<main class="container">
+    <!-- Biblioteca para criar QR Codes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
 
-    <h1>QR Codes para Correção Visual</h1>
-    <p class="subtitle">
-        Escolha o QR Code correspondente à condição visual.
-    </p>
+<body>
 
-    <section class="cards">
+    <header>
+        <h1>🍴 Cardápio Delícias</h1>
+        <p>Comida feita com carinho!</p>
+    </header>
 
-        <!-- MIopia -->
-        <div class="card miopia">
-            <div class="icon">👓</div>
+    <main>
 
-            <h2>Miopia</h2>
+        <section class="cardapio">
+            <h2>🍝 Nosso Cardápio</h2>
 
-            <p>
-                Informações sobre miopia e cuidados com a visão.
-            </p>
+            <div class="item">
+                <h3>🍝 Macarrão</h3>
+                <p>Macarrão com molho de tomate e temperos especiais.</p>
+                <strong>R$ 15,00</strong>
+            </div>
 
-            <div id="qrcode-miopia" class="qrcode"></div>
+            <div class="item">
+                <h3>🥩 Strogonoff</h3>
+                <p>Strogonoff cremoso acompanhado de arroz e batata palha.</p>
+                <strong>R$ 20,00</strong>
+            </div>
 
-            <button onclick="gerarQRCode('miopia')">
-                Gerar QR Code
-            </button>
-        </div>
+            <div class="item">
+                <h3>🍔 X-Salada</h3>
+                <p>Pão, hambúrguer, queijo, alface, tomate e molho especial.</p>
+                <strong>R$ 18,00</strong>
+            </div>
 
-        <!-- Hipermetropia -->
-        <div class="card hipermetropia">
-            <div class="icon">👁️</div>
+            <div class="item">
+                <h3>🧃 Suquinho Natural</h3>
+                <p>Suco natural preparado com frutas frescas.</p>
+                <strong>R$ 7,00</strong>
+            </div>
+        </section>
 
-            <h2>Hipermetropia</h2>
 
-            <p>
-                Informações sobre hipermetropia e cuidados com a visão.
-            </p>
+        <section class="ingredientes">
+            <h2>🥗 Ingredientes</h2>
 
-            <div id="qrcode-hipermetropia" class="qrcode"></div>
+            <div class="item">
+                <h3>🍝 Macarrão</h3>
+                <p>
+                    Macarrão, molho de tomate, cebola, alho,
+                    sal, óleo e temperos.
+                </p>
+            </div>
 
-            <button onclick="gerarQRCode('hipermetropia')">
-                Gerar QR Code
-            </button>
-        </div>
+            <div class="item">
+                <h3>🥩 Strogonoff</h3>
+                <p>
+                    Frango ou carne, creme de leite,
+                    molho de tomate, ketchup, mostarda,
+                    cebola, alho, sal e temperos.
+                </p>
+            </div>
 
-    </section>
+            <div class="item">
+                <h3>🍔 X-Salada</h3>
+                <p>
+                    Pão, hambúrguer, queijo, alface,
+                    tomate, milho, ketchup, maionese
+                    e molho especial.
+                </p>
+            </div>
 
-</main>
+            <div class="item">
+                <h3>🧃 Suquinho Natural</h3>
+                <p>
+                    Fruta fresca, água e açúcar opcional.
+                </p>
+            </div>
+        </section>
 
-<script>
-    function gerarQRCode(tipo) {
 
-        let elemento;
-        let texto;
+        <section class="qrcodes">
+            <h2>📱 Acesse pelo QR Code</h2>
 
-        if (tipo === "miopia") {
-            elemento = document.getElementById("qrcode-miopia");
+            <div class="qr-container">
 
-            texto = "Miopia: dificuldade para enxergar objetos distantes. Procure um oftalmologista para avaliação da visão.";
-        }
+                <div class="qr-card">
+                    <h3>Cardápio</h3>
+                    <div id="qrcode1"></div>
+                    <p>Aponte a câmera para ver o cardápio.</p>
+                </div>
 
-        if (tipo === "hipermetropia") {
-            elemento = document.getElementById("qrcode-hipermetropia");
+                <div class="qr-card">
+                    <h3>Ingredientes</h3>
+                    <div id="qrcode2"></div>
+                    <p>Aponte a câmera para ver os ingredientes.</p>
+                </div>
 
-            texto = "Hipermetropia: dificuldade principalmente para enxergar objetos próximos. Procure um oftalmologista para avaliação da visão.";
-        }
+            </div>
+        </section>
 
-        // Remove o QR Code anterior
-        elemento.innerHTML = "";
+    </main>
 
-        // Cria um novo QR Code
-        new QRCode(elemento, {
-            text: texto,
+    <footer>
+        <p>🍴 Obrigado pela preferência!</p>
+    </footer>
+
+
+    <script>
+        // TROQUE pelo endereço do seu site
+        const site = "https://SEU-LINK-AQUI.com";
+
+        // QR Code do cardápio
+        new QRCode(document.getElementById("qrcode1"), {
+            text: site + "/index.html#cardapio",
             width: 180,
-            height: 180,
-            colorDark: "#111827",
-            colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.H
+            height: 180
         });
-    }
 
-    // Gera os dois QR Codes automaticamente ao carregar a página
-    window.onload = function () {
-        gerarQRCode("miopia");
-        gerarQRCode("hipermetropia");
-    };
-</script>
+        // QR Code dos ingredientes
+        new QRCode(document.getElementById("qrcode2"), {
+            text: site + "/index.html#ingredientes",
+            width: 180,
+            height: 180
+        });
+    </script>
 
-</body> </html>
+</body>
+</html>
